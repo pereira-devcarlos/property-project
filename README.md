@@ -2,7 +2,7 @@
 
 ## 📚 Primeiro Projeto da Disciplina: **AEDs I Prática (UNIFAL-MG)**
 
-Este é o primeiro projeto prático solicitado na disciplina de Algoritmos e Estruturas de Dados I – Prática, do curso de graduação da **Universidade Federal de Alfenas (UNIFAL-MG)**.
+Este é o primeiro projeto prático solicitado na disciplina de Algoritmos e Estruturas de Dados I (P), do curso Ciência da Computação **Universidade Federal de Alfenas (UNIFAL-MG)**.
 
 ---
 
@@ -15,7 +15,7 @@ Este é o primeiro projeto prático solicitado na disciplina de Algoritmos e Est
 ## 💻 Recursos Utilizados
 
 - **Linguagem:** C++
-- **IDE Recomendada:** Code::Blocks, DevC++ ou G++
+- **IDE Recomendada:** NetBeans, DevC++ ou VSCode
 - **Arquivo de Dados:** `BD_Imoveis2.txt`
 - **Estruturas de Dados:** Vetores e Structs
 - **Operações de Entrada/Saída:** Leitura e gravação em arquivo texto
