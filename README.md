@@ -62,6 +62,33 @@ O sistema lê e grava informações de imóveis em um arquivo-texto, permitindo 
 
 ---
 
+## 📁 Organização do Projeto
+
+
+```
+property-project/
+│
+├── src/                    # Códigos-fonte (.cpp, .h)
+│   ├── main.cpp
+│   └── imovel.h
+│
+├── data/                   # Arquivos de dados utilizados pelo programa
+│   └── BD_Imoveis2.txt
+│
+├── docs/                   # Documentos, relatórios ou instruções extras
+│   └── ReadMe.txt
+│
+├── .gitignore
+└── README.md
+```
+
+- **src/**: Código-fonte do projeto.
+- **data/**: Arquivo de dados necessário para execução.
+- **docs/**: Documentação adicional.
+- **README.md**: Documentação principal.
+
+---
+
 ## 📂 Estrutura do Arquivo
 
 ```
