@@ -146,4 +146,3 @@ fim
 ## 👨‍💻 Autores
 
 - Carlos Eduardo Pereira
-- [Colegas,]
