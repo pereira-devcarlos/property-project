@@ -89,7 +89,7 @@ property-project/
 
 ---
 
-## 📂 Estrutura do Arquivo
+## 🗃️ Estrutura do Arquivo
 
 ```
 tipo finalidade endereço bairro cidade área valor IPTU quartos suítes banheiros vagas cozinha sala varanda área_serviço piso conservação armários ar-condicionado aquecedor ventilador
