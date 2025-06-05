@@ -40,6 +40,21 @@ int menu() {
     cin >> opcao;
     return opcao;
 }
+int MenuBusca() {
+    int opcao;
+    cout << "Menu de Busca:" << endl;
+    cout << "1. Buscar por Tipo" << endl;
+    cout << "2. Buscar por Finalidade" << endl;
+    cout << "3. Buscar por Endereço" << endl;
+    cout << "4. Buscar por Bairro" << endl;
+    cout << "5. Buscar por Cidade" << endl;
+    cout << "6. Buscar por Área" << endl;
+    cout << "7. Buscar por Valor" << endl;
+    cout << "8. Voltar ao Menu Principal" << endl;
+    cout << "Escolha uma opção: ";
+    cin >> opcao;
+    return opcao;
+}
 
 int main(){
     
@@ -50,6 +65,32 @@ int main(){
     }
     cout << "Arquivo aberto com sucesso!" << endl;
     Imovel Imoveis[100];
+    
+    for(int i = 0; i < 100 ; i++){
+        informacoes >> Imoveis[i].Tipo;
+        informacoes >> Imoveis[i].Finalidade;
+        informacoes >> Imoveis[i].Endereco;
+        informacoes >> Imoveis[i].Bairro;
+        informacoes >> Imoveis[i].Cidade;
+        informacoes >> Imoveis[i].Area;
+        informacoes >> Imoveis[i].Valor;
+        informacoes >> Imoveis[i].Quartos;
+        informacoes >> Imoveis[i].Suites;
+        informacoes >> Imoveis[i].Banheiros;
+        informacoes >> Imoveis[i].Vagas;
+        informacoes >> Imoveis[i].Cozinha;
+        informacoes >> Imoveis[i].Sala;
+        informacoes >> Imoveis[i].Varanda;
+        informacoes >> Imoveis[i].AreaServico;
+        informacoes >> Imoveis[i].Piso;
+        informacoes >> Imoveis[i].Estado;
+        informacoes >> Imoveis[i].Armarios;
+        informacoes >> Imoveis[i].ArCondicionado;
+        informacoes >> Imoveis[i].Aquecedor;
+        informacoes >> Imoveis[i].Ventilador;
+    }
+
+
 
     return 0;
 }
