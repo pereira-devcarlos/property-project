@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ typedef struct {
     int Ventilador; // 1-sim, 0-não
 }Imovel;
 
-int menu() {
+int menu(int quant) {
     int opcao;
     cout << "Menu de Opções:" << endl;
     cout << "1. Cadastrar Imóvel" << endl;
@@ -40,11 +41,7 @@ int menu() {
     return opcao;
 }
 
-void busca(string Oque){
-
-} 
-
-void menuBusca() {
+void menuBusca(int quant, Imovel Vetor[]) {
     int opcao;
     cout << "Menu de Busca:" << endl;
     cout << "1. Buscar por Tipo" << endl;
@@ -58,26 +55,51 @@ void menuBusca() {
     cout << "Escolha uma opção: ";
     cin >> opcao;
     switch (opcao){
-    case 1:
-        busca("Tipo");
+    case 1:{
+        int Op;
+        string Tipo;
+        cout << "Qual tipo de imovel você deseja?\n1.casa  2.apartamento  3.terreno  4.sala comerciial  5.galpão\nR:" << endl;
+        cin >> Op;
+        while (not(1 <= Op <= 5)){
+            cout << "Opção invalida, digite uma opção valida:";
+            cin >> Op;
+        }
+        if(Op = 1){
+            Tipo = "casa";
+        }else if(Op = 2){
+            Tipo = "apartamento";
+        }else if(Op = 3){
+            Tipo = "terreno";
+        }else if(Op = 4){
+            Tipo = "sala_comercial";
+        }else if(Op = 5){
+            Tipo = "galpão";
+        }
+        for(int i = 0 ; i < quant; i++){
+            if(Vetor[i].Tipo == Op){
+                cout << i << "° " << endl;
+            }
+            
+        };
         break;
+    }
     case 2:
-        busca("Finalidade");
+        
         break;
     case 3:
-        busca("Endereco");
+        
         break;
     case 4:
-        busca("Bairro");
+        
         break;
     case 5:
-        busca("Cidade");
+        
         break;
     case 6:
-        busca("Area");
+        
         break;
     case 7:
-        busca("Valor");
+        
         break;
     case 8:
         menu();
@@ -118,7 +140,6 @@ int main(){
         informacoes >> Imoveis[i].Aquecedor;
         informacoes >> Imoveis[i].Ventilador;
     }
-
 
 
     return 0;
