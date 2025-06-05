@@ -8,7 +8,7 @@ typedef struct {
     int Tipo; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
     int Finalidade; // 1-venda, 2-locação
     char Endereco[50]; // endereço do imóvel
-    char Bario[20]; // bairro do imóvel
+    char Bairro[20]; // bairro do imóvel
     char Cidade[20]; // cidade do imóvel
     int Area; // área do imóvel em m²
     int Valor; // valor do imóvel
