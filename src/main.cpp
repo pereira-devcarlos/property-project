@@ -5,8 +5,8 @@
 using namespace std;
 
 typedef struct {
-    int Tipo; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
-    int Finalidade; // 1-venda, 2-locação
+    char Tipo[10]; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
+    char Finalidade[10]; // 1-venda, 2-locação
     char Endereco[50]; // endereço do imóvel
     char Bairro[20]; // bairro do imóvel
     char Cidade[20]; // cidade do imóvel
@@ -16,16 +16,16 @@ typedef struct {
     int Suites; // número de suítes
     int Banheiros; // número de banheiros
     int Vagas; // número de vagas
-    int Cozinha; // 1-sim, 0-não
-    int Sala; // 1-sim, 0-não
-    int Varanda; // 1-sim, 0-não
-    int AreaServico; // 1-sim, 0-não
+    char Cozinha[4]; // 1-sim, 0-não
+    char Sala[4]; // 1-sim, 0-não
+    char Varanda[4]; // 1-sim, 0-não
+    char AreaServico[4]; // 1-sim, 0-não
     char Piso[20]; // tipo de piso
-    int Estado; // 1-novo, 2-usado, 3-reformado
-    int Armarios; // 1-sim, 0-não
-    int ArCondicionado; // 1-sim, 0-não
-    int Aquecedor; // 1-sim, 0-não
-    int Ventilador; // 1-sim, 0-não
+    char Estado[10]; // 1-novo, 2-usado, 3-reformado
+    char Armarios[4]; // 1-sim, 0-não
+    char ArCondicionado[4]; // 1-sim, 0-não
+    char Aquecedor[4]; // 1-sim, 0-não
+    char Ventilador[4]; // 1-sim, 0-não
 }Imovel;
 
 int menu(int quant) {
@@ -76,8 +76,8 @@ void menuBusca(int quant, Imovel Vetor[]) {
             Tipo = "galpão";
         }
         for(int i = 0 ; i < quant; i++){
-            if(Vetor[i].Tipo == Op){
-                cout << i << "° " << endl;
+            if(Vetor[i].Tipo == Tipo){
+                cout << i << "°- " << Tipo <<  << endl;
             }
             
         };
