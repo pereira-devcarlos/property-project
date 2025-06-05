@@ -39,7 +39,12 @@ int menu() {
     cin >> opcao;
     return opcao;
 }
-int MenuBusca() {
+
+void busca(string Oque){
+    
+} 
+
+void menuBusca() {
     int opcao;
     cout << "Menu de Busca:" << endl;
     cout << "1. Buscar por Tipo" << endl;
@@ -52,7 +57,32 @@ int MenuBusca() {
     cout << "8. Voltar ao Menu Principal" << endl;
     cout << "Escolha uma opção: ";
     cin >> opcao;
-    return opcao;
+    switch (opcao){
+    case 1:
+        busca("Tipo");
+        break;
+    case 2:
+        busca("Finalidade");
+        break;
+    case 3:
+        busca("Endereco");
+        break;
+    case 4:
+        busca("Bairro");
+        break;
+    case 5:
+        busca("Cidade");
+        break;
+    case 6:
+        busca("Area");
+        break;
+    case 7:
+        busca("Valor");
+        break;
+    case 8:
+        menu();
+        break;
+    }
 }
 
 int main(){
