@@ -1,4 +1,3 @@
-# Tipo Finalidade Endereço Bairro Cidade Área Valor IPTU Quartos Suítes Banheiros Vagas Cozinha Sala Varanda Área_de_Serviço Piso Conservação Armários Ar-condicionado Aquecedor Ventilador
 casa venda Rua_das_Flores Primavera Alfenas 120 350000 800 3 1 2 2 sim sim sim sim cerâmica usado sim não não sim
 apartamento aluguel Avenida_Getúlio_Vargas Centro Alfenas 75 1200 150 2 0 1 1 sim sim sim sim laminado reformado sim sim não não
 terreno venda Rua_dos_Ipês Loteamento_Portal_do_Lago Alfenas 300 180000 300 0 0 0 0 não não não não terra novo não não não não
@@ -112,4 +111,3 @@ casa aluguel Rua_dos_Girassóis Jardim_das_Nações Poços_de_Caldas 112 1820 22
 apartamento venda Avenida_Minas_Gerais Centro Guaxupé 92 445000 1030 3 1 2 2 sim sim sim sim porcelanato novo sim sim não não
 terreno aluguel Estrada_para_Muzambinho Zona_Rural Muzambinho 5900 590 98 0 0 0 0 não não não não terra novo não não não não
 sala_comercial venda Praça_da_Liberdade Centro São_Lourenço 75 310000 410 0 0 1 0 não sim não não cerâmica usado não sim não não
-fim
