@@ -6,7 +6,7 @@ using namespace std;
 typedef struct {
     int Tipo; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
     int Finalidade; // 1-venda, 2-locação
-    char Rua[50]; // endereço do imóvel
+    char Endereco[50]; // endereço do imóvel
     char Bairro[20]; // bairro do imóvel
     char Cidade[20]; // cidade do imóvel
     int Area; // área do imóvel em m²
@@ -49,7 +49,7 @@ void menuBusca() {
     cout << "Menu de Busca:" << endl;
     cout << "1. Buscar por Tipo" << endl;
     cout << "2. Buscar por Finalidade" << endl;
-    cout << "3. Buscar por Rua" << endl;
+    cout << "3. Buscar por Endereço" << endl;
     cout << "4. Buscar por Bairro" << endl;
     cout << "5. Buscar por Cidade" << endl;
     cout << "6. Buscar por Área" << endl;
@@ -98,7 +98,7 @@ int main(){
     for(int i = 0; i < 100 ; i++){
         informacoes >> Imoveis[i].Tipo;
         informacoes >> Imoveis[i].Finalidade;
-        informacoes >> Imoveis[i].Rua;
+        informacoes >> Imoveis[i].Endereco;
         informacoes >> Imoveis[i].Bairro;
         informacoes >> Imoveis[i].Cidade;
         informacoes >> Imoveis[i].Area;
