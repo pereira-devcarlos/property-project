@@ -31,10 +31,10 @@ typedef struct {
 int menu(int quant) {
     int opcao;
     cout << "Menu de Opções:" << endl;
-    cout << "1. Cadastrar Imóvel" << endl;
-    cout << "2. Listar Imóveis" << endl;
-    cout << "3. Buscar Imóvel" << endl;
-    cout << "4. Excluir Imóvel" << endl;
+    cout << "1. Inclusão de um novo imóvel" << endl;
+    cout << "2. Menu de opções de busca" << endl;
+    cout << "3. Relatório de Estatísticas" << endl;
+    cout << "4. Listagem de todos os imóveis disponíveis" << endl;
     cout << "5. Sair" << endl;
     cout << "Escolha uma opção: ";
     cin >> opcao;
