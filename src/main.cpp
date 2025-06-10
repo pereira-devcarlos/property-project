@@ -119,6 +119,7 @@ int main(){
         informacoes >> Imoveis[i].Ventilador;
     }
 
+//afbahfafi
 
 
     return 0;
