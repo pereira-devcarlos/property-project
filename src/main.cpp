@@ -76,7 +76,7 @@ void menuBusca(int quant, Imovel Vetor[]) {
             strcpy(Tipo, "galpão");
         }
         for(int i = 0 ; i < quant; i++){
-            if(Vetor[i].Tipo == Tipo){
+            if(strcmp(Vetor[i].Tipo, Tipo) == 0){
                 cout << i+1 << "°-É um(a) " << Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;
             }          
         };
@@ -85,7 +85,7 @@ void menuBusca(int quant, Imovel Vetor[]) {
     case 2:{
         int Op;
         char Finalidade[12];
-        cout << "Qual finalidade você deseja?\n1.venda  2.locação  3.temporada\nR:" << endl;
+        cout << "Qual finalidade você deseja?\n1.venda  2.aluguel  3.temporada\nR:" << endl;
         cin >> Op;
         while (not(1 <= Op <= 3)){
             cout << "Opção invalida, digite uma opção valida:";
@@ -94,12 +94,12 @@ void menuBusca(int quant, Imovel Vetor[]) {
         if(Op == 1){
             strcpy(Finalidade, "venda");
         }else if(Op == 2){
-            strcpy(Finalidade, "locação");
+            strcpy(Finalidade, "aluguel");
         }else if(Op == 3){
             strcpy(Finalidade, "temporada");
         }
         for(int i = 0 ; i < quant; i++){
-            if(Vetor[i].Finalidade == Finalidade){
+            if(strcmp(Vetor[i].Finalidade, Finalidade) == 0){
                 cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;
             }          
         };        
@@ -180,31 +180,35 @@ int main(){
         return 1;
     }
     cout << "Arquivo aberto com sucesso!" << endl;
-    int QuantMax = 200, QuantAtual = 100;
+    int QuantMax = 200;
     Imovel Imoveis[QuantMax];
-    
-    for(int i = 0; i < QuantMax ; i++){
-        informacoes >> Imoveis[i].Tipo;
-        informacoes >> Imoveis[i].Finalidade;
-        informacoes >> Imoveis[i].Endereco;
-        informacoes >> Imoveis[i].Bairro;
-        informacoes >> Imoveis[i].Cidade;
-        informacoes >> Imoveis[i].Area;
-        informacoes >> Imoveis[i].Valor;
-        informacoes >> Imoveis[i].Quartos;
-        informacoes >> Imoveis[i].Suites;
-        informacoes >> Imoveis[i].Banheiros;
-        informacoes >> Imoveis[i].Vagas;
-        informacoes >> Imoveis[i].Cozinha;
-        informacoes >> Imoveis[i].Sala;
-        informacoes >> Imoveis[i].Varanda;
-        informacoes >> Imoveis[i].AreaServico;
-        informacoes >> Imoveis[i].Piso;
-        informacoes >> Imoveis[i].Estado;
-        informacoes >> Imoveis[i].Armarios;
-        informacoes >> Imoveis[i].ArCondicionado;
-        informacoes >> Imoveis[i].Aquecedor;
-        informacoes >> Imoveis[i].Ventilador;
+    int QuantAtual = 0;
+
+    while (
+        QuantAtual < QuantMax &&
+        informacoes >> Imoveis[QuantAtual].Tipo
+        >> Imoveis[QuantAtual].Finalidade
+        >> Imoveis[QuantAtual].Endereco
+        >> Imoveis[QuantAtual].Bairro
+        >> Imoveis[QuantAtual].Cidade
+        >> Imoveis[QuantAtual].Area
+        >> Imoveis[QuantAtual].Valor
+        >> Imoveis[QuantAtual].Quartos
+        >> Imoveis[QuantAtual].Suites
+        >> Imoveis[QuantAtual].Banheiros
+        >> Imoveis[QuantAtual].Vagas
+        >> Imoveis[QuantAtual].Cozinha
+        >> Imoveis[QuantAtual].Sala
+        >> Imoveis[QuantAtual].Varanda
+        >> Imoveis[QuantAtual].AreaServico
+        >> Imoveis[QuantAtual].Piso
+        >> Imoveis[QuantAtual].Estado
+        >> Imoveis[QuantAtual].Armarios
+        >> Imoveis[QuantAtual].ArCondicionado
+        >> Imoveis[QuantAtual].Aquecedor
+        >> Imoveis[QuantAtual].Ventilador
+    ) {
+        QuantAtual++;
     }
 
     menuBusca(QuantAtual,Imoveis);
