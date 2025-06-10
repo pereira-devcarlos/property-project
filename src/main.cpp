@@ -171,6 +171,114 @@ void menuBusca(int quant, Imovel Vetor[]) {
         break;
     }
 }
+void excluirImovel(Imovel imoveis[], int &total){
+
+    int opcao;
+    cout << "Menu de Exclusão:" << endl;
+    cout << "Escolha um critério para buscar o imóvel a ser excluído:\n";
+    cout << "Digite 1 para excluir pelo endereço" << endl;
+    cout << "Digite 2 para excluir pelo tipo" << endl;
+    cout << "Digite 3 para excluir pelo Bairro" << endl;
+    cout << "Digite 4 para excluir pelo Cidade" << endl;
+    cout << "Digite 5 para não excluir" << endl;
+    cin >> opcao;
+
+    char entrada[50];
+    bool encontrado = false;
+
+    if (opcao == 5) {
+        cout << "Exclusão cancelada." << endl;
+        return;
+    }
+
+    cout << "Digite o que vc quer excluir (O endereço, o tipo, bairro ou cidade): ";
+    cin.ignore();
+    cin.getline(entrada, 50);
+
+    for (int i = 0; i<total; i++){
+
+        bool deveExcluir = false;
+        switch (opcao){
+            case 1: // Excluir pelo endereço
+                if (strcmp(imoveis[i].Endereco, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+            case 2: // Excluir pelo tipo
+                if (strcmp(imoveis[i].Tipo, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+            case 3: // Excluir pelo bairro  
+                if (strcmp(imoveis[i].Bairro, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+            case 4: // Excluir pela cidade
+                if (strcmp(imoveis[i].Cidade, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+                default:
+                cout << "Critério inválido." << endl;
+                return;
+
+        }
+        if (deveExcluir){
+            encontrado = true;
+            cout << "Imóvel encontrado no índice " << i << ": " << imoveis[i].Endereco << endl;
+            cout << "Voce deseja excluir esse imóvel? (s = 1/n = 0): ";
+            int resp;
+            cin >> resp;
+            if (resp == 1){
+                for (int j = i; j < total - 1; j++){
+                    imoveis[j] = imoveis[j + 1];
+                }
+                total--;
+                cout << "Imóvel excluído com sucesso!" << endl;
+                i--;
+
+            } else {
+                cout << "O imovel nao foi excluído." << endl;
+            }
+        }
+        if (!encontrado) {
+            cout << "Nenhum imóvel encontrado com o critério especificado." << endl;
+        }
+
+    }
+
+}
+void relatorio(int total_imoveis,int count_venda,int count_locacao,int casas_totais,int casas_com_suite,int salacomercial_totais,int salacomercial_ceramica) {
+    
+    printf("Relatório de Estatísticas dos Imóveis\n");
+    printf("------------------------------------\n");
+    printf("Total de imóveis lidos: %d\n", total_imoveis);
+
+    if (total_imoveis == 0) {
+        printf("Nenhum imóvel cadastrado no arquivo.\n");
+        return;
+    }
+
+    printf("Porcentagem de imóveis por finalidade:\n");
+    printf(" - Venda: %.1f%%\n", (count_venda * 100.0) / total_imoveis);
+    printf(" - Locação (Aluguel/Temporada): %.1f%%\n", (count_locacao * 100.0) / total_imoveis);
+
+    if (casas_totais > 0) {
+        printf("Porcentagem de casas com suítes: %.1f%% (%d de %d casas)\n",
+               (casas_com_suite * 100.0) / casas_totais, casas_com_suite, casas_totais);
+    } else {
+        printf("Não há casas cadastradas.\n");
+    }
+
+    if (salacomercial_totais > 0) {
+        printf("Porcentagem de pisos com cerâmica nas salas comerciais: %.1f%% (%d de %d salas comerciais)\n",
+               (salacomercial_ceramica * 100.0) / salacomercial_totais,
+               salacomercial_ceramica, salacomercial_totais);
+    } else {
+        printf("Não há salas comerciais cadastradas.\n");
+    }
+}
 
 
 
