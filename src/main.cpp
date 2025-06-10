@@ -41,7 +41,7 @@ int menu(int quant) {
     return opcao;
 }
 
-void menuBusca(int quant, Imovel Vetor[]) {
+void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
     int opcao;
     cout << "Menu de Busca:" << endl;
     cout << "1. Buscar por Tipo" << endl;
@@ -57,13 +57,13 @@ void menuBusca(int quant, Imovel Vetor[]) {
     switch (opcao){
     case 1:{
         int Op;
-        char Tipo[10];
         cout << "Qual tipo de imovel você deseja?\n1.casa  2.apartamento  3.terreno  4.sala comerciial  5.galpão\nR:" << endl;
         cin >> Op;
         while (not(1 <= Op <= 5)){
             cout << "Opção invalida, digite uma opção valida:";
             cin >> Op;
         }
+        char Tipo[10];
         if(Op == 1){
             strcpy(Tipo, "casa");
         }else if(Op == 2){
