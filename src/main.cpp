@@ -1,12 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
 typedef struct {
     char Tipo[10]; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
-    char Finalidade[10]; // 1-venda, 2-locação
+    char Finalidade[10]; // 1-venda, 2-locação, 3-temporada
     char Endereco[50]; // endereço do imóvel
     char Bairro[20]; // bairro do imóvel
     char Cidade[20]; // cidade do imóvel
@@ -64,45 +64,110 @@ void menuBusca(int quant, Imovel Vetor[]) {
             cout << "Opção invalida, digite uma opção valida:";
             cin >> Op;
         }
-        if(Op = 1){
+        if(Op == 1){
             Tipo = "casa";
-        }else if(Op = 2){
+        }else if(Op == 2){
             Tipo = "apartamento";
-        }else if(Op = 3){
+        }else if(Op == 3){
             Tipo = "terreno";
-        }else if(Op = 4){
+        }else if(Op == 4){
             Tipo = "sala_comercial";
-        }else if(Op = 5){
+        }else if(Op == 5){
             Tipo = "galpão";
         }
         for(int i = 0 ; i < quant; i++){
-            if(Vetor[i].Tipo == Tipo){
-                cout << i << "°- " << Tipo <<  << endl;
-            }
-            
+            if(strcmp(Vetor[i].Tipo, Tipo.c_str()) == 0){
+                cout << i+1 << "°-É um(a) " << Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;
+            }          
         };
         break;
     }
-    case 2:
-        
-        break;
-    case 3:
-        
-        break;
-    case 4:
-        
-        break;
-    case 5:
-        
-        break;
-    case 6:
-        
-        break;
-    case 7:
-        
-        break;
+    case 2:{
+        int Op;
+        string Finalidade;
+        cout << "Qual finalidade você deseja?\n1.venda  2.locação  3.temporada\nR:" << endl;
+        cin >> Op;
+        while (not(1 <= Op <= 3)){
+            cout << "Opção invalida, digite uma opção valida:";
+            cin >> Op;
+        }
+        if(Op == 1){
+            Finalidade = "venda";
+        }else if(Op == 2){
+            Finalidade = "locação";
+        }else if(Op == 3){
+            Finalidade = "temporada";
+        }
+        for(int i = 0 ; i < quant; i++){
+            if(strcmp(Vetor[i].Finalidade, Finalidade.c_str()) == 0){
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;
+            }          
+        };        
+        break;}
+    case 3:{
+        string Endereco;
+        cout << "Qual endereço você deseja?\nR:";
+        cin >> Endereco;
+        for (int i = 0; i < quant; i++){
+            if(strcmp(Vetor[i].Endereco, Endereco.c_str()) == 0){
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+            }
+        }       
+        break;}
+    case 4:{
+        string Bairro;
+        cout << "Qual Bairro você deseja?\nR:";
+        cin >> Bairro;
+        for (int i = 0; i < quant; i++){
+            if(strcmp(Vetor[i].Bairro, Bairro.c_str()) == 0){
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+            }
+        } 
+        break;}
+    case 5:{
+        string Cidade;
+        cout << "Qual Bairro você deseja?\nR:";
+        cin >> Cidade;
+        for (int i = 0; i < quant; i++){
+            if(strcmp(Vetor[i].Cidade, Cidade.c_str()) == 0){
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+            }
+        } 
+        break;}
+    case 6:{
+        int Min,Max;
+        cout << "Digite o valor minimo de area:";
+        cin >> Min;
+        cout << "Digite o valor maximo de area:";
+        cin >> Max;
+        while (Max < Min){
+            cout << "Digite um valor maximo maior que o minimo:";
+            cin >> Max;
+        }
+        for(int i = 0; i < quant; i++){
+            if(Min <= Vetor[i].Area <= Max){
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+            }
+        }
+        break;}
+    case 7:{
+        int Min,Max;
+        cout << "Digite o valor minimo:";
+        cin >> Min;
+        cout << "Digite o valor maximo:";
+        cin >> Max;
+        while (Max < Min){
+            cout << "Digite um valor maximo maior que o minimo:";
+            cin >> Max;
+        }
+        for(int i = 0; i < quant; i++){
+            if(Min <= Vetor[i].Area <= Max){
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+            }
+        }
+        break;}
     case 8:
-        menu();
+        menu(100);
         break;
     }
 }
@@ -115,9 +180,10 @@ int main(){
         return 1;
     }
     cout << "Arquivo aberto com sucesso!" << endl;
-    Imovel Imoveis[100];
+    int QuantMax = 200, QuantAtual = 100;
+    Imovel Imoveis[QuantMax];
     
-    for(int i = 0; i < 100 ; i++){
+    for(int i = 0; i < QuantMax ; i++){
         informacoes >> Imoveis[i].Tipo;
         informacoes >> Imoveis[i].Finalidade;
         informacoes >> Imoveis[i].Endereco;
@@ -141,6 +207,6 @@ int main(){
         informacoes >> Imoveis[i].Ventilador;
     }
 
-
+    menuBusca(QuantAtual,Imoveis);
     return 0;
 }
