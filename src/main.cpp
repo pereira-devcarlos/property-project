@@ -171,6 +171,85 @@ void menuBusca(int quant, Imovel Vetor[]) {
         break;
     }
 }
+void excluirImovel(Imovel imoveis[], int &total){
+
+    int opcao;
+    cout << "Menu de Exclusão:" << endl;
+    cout << "Escolha um critério para buscar o imóvel a ser excluído:\n";
+    cout << "Digite 1 para excluir pelo endereço" << endl;
+    cout << "Digite 2 para excluir pelo tipo" << endl;
+    cout << "Digite 3 para excluir pelo Bairro" << endl;
+    cout << "Digite 4 para excluir pelo Cidade" << endl;
+    cout << "Digite 5 para não excluir" << endl;
+    cin >> opcao;
+
+    char entrada[50];
+    bool encontrado = false;
+
+    if (opcao == 5) {
+        cout << "Exclusão cancelada." << endl;
+        return;
+    }
+
+    cout << "Digite o que vc quer excluir (O endereço, o tipo, bairro ou cidade): ";
+    cin.ignore();
+    cin.getline(entrada, 50);
+
+    for (int i = 0; i<total; i++){
+
+        bool deveExcluir = false;
+        switch (opcao){
+            case 1: // Excluir pelo endereço
+                if (strcmp(imoveis[i].Endereco, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+            case 2: // Excluir pelo tipo
+                if (strcmp(imoveis[i].Tipo, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+            case 3: // Excluir pelo bairro  
+                if (strcmp(imoveis[i].Bairro, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+            case 4: // Excluir pela cidade
+                if (strcmp(imoveis[i].Cidade, entrada) == 0) {
+                    deveExcluir = true;
+                }
+                break;
+                default:
+                cout << "Critério inválido." << endl;
+                return;
+
+        }
+        if (deveExcluir){
+            encontrado = true;
+            cout << "Imóvel encontrado no índice " << i << ": " << imoveis[i].Endereco << endl;
+            cout << "Voce deseja excluir esse imóvel? (s = 1/n = 0): ";
+            int resp;
+            cin >> resp;
+            if (resp == 1){
+                for (int j = i; j < total - 1; j++){
+                    imoveis[j] = imoveis[j + 1];
+                }
+                total--;
+                cout << "Imóvel excluído com sucesso!" << endl;
+                i--;
+
+            } else {
+                cout << "O imovel nao foi excluído." << endl;
+            }
+        }
+        if (!encontrado) {
+            cout << "Nenhum imóvel encontrado com o critério especificado." << endl;
+        }
+
+    }
+
+}
+
 
 int main(){
     
