@@ -399,9 +399,6 @@ int main(){
     cout << "A lista de imoveis está carregada com " << QuantAtual << " imóveis." << endl;
     menuBusca(QuantLeitura,Imoveis);
 
-    
-
-
     /*
     +--[Esta faltando fazer]--+
     -> as funções se conversarem
