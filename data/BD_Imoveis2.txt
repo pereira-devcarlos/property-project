@@ -86,7 +86,7 @@ casa venda Rua_dos_Hibiscos Jardim_Primavera_II Três_Pontas 140 400000 900 3 1 
 apartamento aluguel Rua_Barão_do_Rio_Branco Centro Boa_Esperança 68 1150 170 2 0 1 1 sim sim não sim cerâmica usado não não não sim
 terreno venda Loteamento_Novo_Horizonte Novo_Horizonte Ilicínea 420 210000 350 0 0 0 0 não não não não terra novo não não não não
 sala_comercial aluguel Avenida_Presidente_Vargas Centro Campo_Belo 50 1050 125 0 0 1 0 não sim não não laminado novo não sim não não
-galpão venda Rua_das_Indústrias II Distrito_Industrial Monsenhor_Paulo 1750 1050000 2800 0 0 2 7 sim sim não sim cimento usado não não não não
+galpão venda Rua_das_Indústrias_II Distrito_Industrial Monsenhor_Paulo 1750 1050000 2800 0 0 2 7 sim sim não sim cimento usado não não não não
 casa aluguel Rua_das_Flores Jardim_Universitário Formiga 105 1700 210 3 0 2 1 sim sim sim sim cerâmica reformado sim não sim sim
 apartamento venda Rua_Brasil Centro Cristais 88 410000 1000 2 1 2 2 sim sim sim sim porcelanato novo sim sim não não
 terreno aluguel Estrada_para_Cambuquira Zona_Rural Três_Corações 5800 580 95 0 0 0 0 não não não não terra novo não não não não
@@ -96,17 +96,17 @@ casa venda Rua_das_Palmeiras Residencial_Alvorada Pouso_Alegre 150 430000 960 3 
 apartamento aluguel Rua_Ouro_Preto Centro São_Sebastião_do_Paraíso 72 1180 175 2 0 1 1 sim sim não sim laminado usado não não não sim
 terreno venda Loteamento_Sol_Nascente Sol_Nascente Alpinópolis 410 205000 360 0 0 0 0 não não não não terra novo não não não não
 sala_comercial aluguel Avenida_Olegário_Maciel Centro Passos 48 980 120 0 0 1 0 não sim não não cerâmica novo não sim não não
-galpão venda Avenida_Industrial I Distrito_Industrial São_Tomás_de_Aquino 2150 1280000 3150 0 0 3 9 sim sim não sim cimento novo não não não não
+galpão venda Avenida_Industrial_I Distrito_Industrial São_Tomás_de_Aquino 2150 1280000 3150 0 0 3 9 sim sim não sim cimento novo não não não não
 casa aluguel Rua_dos_Cravo Jardim_Europa Lavras 115 1850 230 3 1 2 1 sim sim sim sim cerâmica reformado sim não sim sim
 apartamento venda Rua_Bahia Centro Guaranésia 90 440000 1020 3 1 2 2 sim sim sim sim porcelanato usado sim sim não não
 terreno aluguel Estrada_para_Itaúna Zona_Rural Oliveira 5600 560 92 0 0 0 0 não não não não terra novo não não não não
 sala_comercial venda Praça_da_Matriz Centro Carmo_do_Rio_Claro 65 280000 380 0 0 1 0 não sim não não porcelanato novo não sim não não
-galpão aluguel Rua_da_Indústria II Distrito_Industrial Piranguçu 1020 5100 2000 0 0 1 5 sim sim não sim cimento usado não não não não
+galpão aluguel Rua_da_Indústria_II Distrito_Industrial Piranguçu 1020 5100 2000 0 0 1 5 sim sim não sim cimento usado não não não não
 casa venda Rua_das_Begônias Residencial_Primavera_III Três_Corações 145 410000 920 3 1 2 2 sim sim sim sim cerâmica novo sim não sim não
 apartamento aluguel Rua_Rio_Grande_do_Sul Centro Alterosa 70 1160 172 2 0 1 1 sim sim não sim laminado usado não não não sim
 terreno venda Loteamento_Vista_Alegre Vista_Alegre Alfenas 430 215000 370 0 0 0 0 não não não não terra novo não não não não
 sala_comercial aluguel Avenida_Dr_João_Vargas Centro Paraguaçu 46 950 118 0 0 1 0 não sim não não cerâmica reformado não sim não não
-galpão venda Rua_dos_Metalúrgicos II Distrito_Industrial Itajubá 1650 980000 2750 0 0 2 6 sim sim não sim cimento usado não não não não
+galpão venda Rua_dos_Metalúrgicos_II Distrito_Industrial Itajubá 1650 980000 2750 0 0 2 6 sim sim não sim cimento usado não não não não
 casa aluguel Rua_dos_Girassóis Jardim_das_Nações Poços_de_Caldas 112 1820 225 3 1 2 1 sim sim sim sim cerâmica reformado sim não sim sim
 apartamento venda Avenida_Minas_Gerais Centro Guaxupé 92 445000 1030 3 1 2 2 sim sim sim sim porcelanato novo sim sim não não
 terreno aluguel Estrada_para_Muzambinho Zona_Rural Muzambinho 5900 590 98 0 0 0 0 não não não não terra novo não não não não

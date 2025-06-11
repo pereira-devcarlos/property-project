@@ -218,7 +218,6 @@ void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
         menu(quant);
     }
 }
-
 void excluirImovel(Imovel imoveis[], int &total){
 
     int opcao;
