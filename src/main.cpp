@@ -428,9 +428,42 @@ int main(){
                 break;
 
             case 4:
+            {
                 cout << "Listando todos os imóveis disponíveis..." << endl;
                 // lógica de listagem
-                break;
+                cout << "Arquivo aberto com sucesso!" << endl;
+    Imovel Imoveis[100];
+    
+    int quantidade = 0;
+
+    while (quantidade < 100 && informacoes 
+                       >> Imoveis[quantidade].Tipo
+                       >> Imoveis[quantidade].Finalidade
+                       >> Imoveis[quantidade].Endereco
+                       >> Imoveis[quantidade].Bairro
+                       >> Imoveis[quantidade].Cidade
+                       >> Imoveis[quantidade].Area
+                       >> Imoveis[quantidade].Valor
+                       >> Imoveis[quantidade].IPTU
+                       >> Imoveis[quantidade].Quartos
+                       >> Imoveis[quantidade].Suites
+                       >> Imoveis[quantidade].Banheiros
+                       >> Imoveis[quantidade].Vagas
+                       >> Imoveis[quantidade].Cozinha
+                       >> Imoveis[quantidade].Sala
+                       >> Imoveis[quantidade].Varanda
+                       >> Imoveis[quantidade].AreaServico
+                       >> Imoveis[quantidade].Piso
+                       >> Imoveis[quantidade].Estado
+                       >> Imoveis[quantidade].Armarios
+                       >> Imoveis[quantidade].ArCondicionado
+                       >> Imoveis[quantidade].Aquecedor
+                       >> Imoveis[quantidade].Ventilador) {
+        quantidade++;
+    }
+
+    listarImoveis(Imoveis, quantidade);            
+    break;}
 
             default:
                 cout << "Opção inválida! Tente novamente." << endl;
