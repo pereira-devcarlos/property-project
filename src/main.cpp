@@ -358,7 +358,7 @@ void listarImoveis(Imovel Imoveis[], int quantidade) {
 
 int main(){
     
-    ifstream informacoes("../data/BD_Imoveis2.txt");
+    ifstream informacoes("../../data/BD_Imoveis2.txt");
     if (!informacoes) {
         cout << "Erro ao abrir o arquivo" << endl;
         return 1;
@@ -390,7 +390,6 @@ int main(){
         >> Imoveis[QuantAtual].Aquecedor
         >> Imoveis[QuantAtual].Ventilador
     ) {
-    cout << "Tipo do imovel: " << Imoveis[QuantAtual].Tipo << endl;
     QuantAtual++;
     }
 
@@ -419,17 +418,14 @@ int main(){
                 cout << "Incluindo um novo imóvel..." << endl;
                 // lógica de inclusão
                 break;
-
             case 2:
                 cout << "Acessando menu de busca..." << endl;
                 // lógica de busca
                 break;
-
             case 3:
                 cout << "Gerando relatório de estatísticas..." << endl;
                 // lógica de estatísticas
                 break;
-
             case 4:
             {
                 cout << "Listando todos os imóveis disponíveis..." << endl;
