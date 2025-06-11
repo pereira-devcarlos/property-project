@@ -285,7 +285,7 @@ void relatorio(int total_imoveis,int count_venda,int count_locacao,int casas_tot
 
 int main(){
     
-    ifstream informacoes("BD_Imoveis2.txt");
+    ifstream informacoes("../data/BD_Imoveis2.txt");
     if (!informacoes) {
         cout << "Erro ao abrir o arquivo" << endl;
         return 1;
@@ -322,12 +322,7 @@ int main(){
         QuantAtual++;
     }
 
-<<<<<<< HEAD
-//afbahfafi
 
-
-=======
     menuBusca(QuantAtual,Imoveis);
->>>>>>> 03e5b9b9700295ad38031920547cfef8607aa72c
     return 0;
 }
