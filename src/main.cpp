@@ -30,6 +30,7 @@ typedef struct {
     char Ventilador[4]; // 1-sim, 0-não
 }Imovel;
 
+
 int menu(int quant) {
     int opcao;
     cout << "Menu de Opções:" << endl;
@@ -397,7 +398,7 @@ int main(){
     if(QuantAtual > 100)  QuantLeitura = 100;
     else QuantLeitura = QuantAtual;
     cout << "A lista de imoveis está carregada com " << QuantAtual << " imóveis." << endl;
-    menuBusca(QuantLeitura,Imoveis);
+ 
 
     /*
     +--[Esta faltando fazer]--+
@@ -407,7 +408,8 @@ int main(){
     -> melhorar os outputs
     oi
     */
-
+   
+    int quant = 0;
     int opcao = menu(quant); // exibe o menu uma vez antes do loop
 
     while (opcao != 0) {
@@ -463,7 +465,8 @@ int main(){
     }
 
     listarImoveis(Imoveis, quantidade);            
-    break;}
+    break;
+}
 
             default:
                 cout << "Opção inválida! Tente novamente." << endl;
