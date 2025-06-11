@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -5,13 +6,14 @@
 using namespace std;
 
 typedef struct {
-    char Tipo[20]; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
+    char Tipo[30]; // 1-casa, 2-apartamento, 3-terreno, 4-sala comerciial, 5-galpão
     char Finalidade[10]; // 1-venda, 2-locação, 3-temporada
     char Endereco[50]; // endereço do imóvel
     char Bairro[20]; // bairro do imóvel
     char Cidade[20]; // cidade do imóvel
     int Area; // área do imóvel em m²
-    int Valor; // valor do imóvel
+    char Valor[12]; // valor do imóvel
+    int IPTU; // IPTU do imóvel
     int Quartos; // número de quartos
     int Suites; // número de suítes
     int Banheiros; // número de banheiros
@@ -63,7 +65,7 @@ void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
             cout << "Opção invalida, digite uma opção valida:";
             cin >> Op;
         }
-        char Tipo[10];
+        char Tipo[30];
         if(Op == 1){
             strcpy(Tipo, "casa");
         }else if(Op == 2){
@@ -77,7 +79,7 @@ void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
         }
         for(int i = 0 ; i < quant; i++){
             if(strcmp(Vetor[i].Tipo, Tipo) == 0){
-                cout << i+1 << "°-É um(a) " << Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;
+                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;
             }          
         };
         break;
@@ -151,24 +153,69 @@ void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
         }
         break;}
     case 7:{
-        int Min,Max;
-        cout << "Digite o valor minimo:";
-        cin >> Min;
-        cout << "Digite o valor maximo:";
-        cin >> Max;
-        while (Max < Min){
-            cout << "Digite um valor maximo maior que o minimo:";
-            cin >> Max;
+        int Op;
+        cout << "Qual tipo de imovel você deseja?\n1.Imovel para compra   2.Imovel para aluguel\nR:" << endl;
+        cin >> Op;
+        while (2 <= Op and Op <= 1){
+            cout << "Digite o valor de uma opção valida:";
+            cin >> Op;
         }
-        for(int i = 0; i < quant; i++){
-            if(Min <= Vetor[i].Area <= Max){
-                cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+        int valor;
+        switch (Op){
+            case 1:{
+                int Min,Max;
+                cout << "Digite o valor minimo:";
+                cin >> Min;
+                cout << "Digite o valor maximo:";
+                cin >> Max;
+                while (Max < Min){
+                    cout << "Digite um valor maximo maior que o minimo:";
+                    cin >> Max;
+                }
+                for(int i = 0; i < quant; i++){
+                    sscanf(Vetor[i].Valor, "%d", &valor); // Converte o valor de string para int
+                    if((Min <= valor and valor <= Max) and (Vetor[i].Finalidade == "venda")){
+                        cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+                    }
+                }    
+                break;
+            }
+            case 2:{
+                int Min,Max;
+                cout << "Digite o valor minimo do aluguel:";
+                cin >> Min;
+                cout << "Digite o valor maximo do aluguel:";
+                cin >> Max;
+                while (Max < Min){
+                    cout << "Digite um valor maximo maior que o minimo:";
+                    cin >> Max;
+                }
+                for(int i = 0; i < quant; i++){
+                    sscanf(Vetor[i].Valor, "%d", &valor); // Converte o valor de string para int e tira o /dia do valor
+                    if((Min <= valor and valor <= Max) and !(Vetor[i].Finalidade == "venda")){
+                        cout << i+1 << "°-É um(a) " << Vetor[i].Tipo << " para " << Vetor[i].Finalidade << " no endereço " << Vetor[i].Endereco << " no bairro " << Vetor[i].Bairro << " da cidade " << Vetor[i].Cidade << " com " << Vetor[i].Area << "m² no valor de R$" << Vetor[i].Valor << ". Possui " << Vetor[i].Quartos << " Quartos, " << Vetor[i].Suites << " Suites, " << Vetor[i].Banheiros << " Banehiros e " << Vetor[i].Vagas << " Vagas. Cozinha:" << Vetor[i].Cozinha << " Sala:" << Vetor[i].Sala << " Varanda:" << Vetor[i].Varanda << " Area de Serviço:" << Vetor[i].AreaServico << " Tipo do piso: " << Vetor[i].Piso << " Ele está " << Vetor[i].Estado << " Ar condicionado:" << Vetor[i].ArCondicionado << " Aquicedor:" << Vetor[i].Aquecedor << " Ventilador:" << Vetor[i].Ventilador << endl;               
+                    }
+                }
+                break;
             }
         }
+        
         break;}
     case 8:
-        menu(100);
+        menu(quant);
         break;
+    }
+    int rep;
+    cout << "Deseja pesquisar por outro critério?\n1. Sim   2. Não\nR:";
+    cin >> rep;
+    while(rep > 2 and rep < 1){
+        cout << "Digite uma opção valida:";
+        cin >> rep;
+    }
+    if(rep == 1){
+        menuBusca(quant, Vetor);
+    } else {
+        menu(quant);
     }
 }
 void excluirImovel(Imovel imoveis[], int &total){
@@ -249,24 +296,24 @@ void excluirImovel(Imovel imoveis[], int &total){
     }
 
 }
-void relatorio(int totalImovel,int cVenda,int cLocacao,int totalCasas,int casas_com_suite,int salacomercial_totais,int salacomercial_ceramica) {
+void relatorio(int total_imoveis,int count_venda,int count_locacao,int casas_totais,int casas_com_suite,int salacomercial_totais,int salacomercial_ceramica) {
     
     printf("Relatório de Estatísticas dos Imóveis\n");
     printf("------------------------------------\n");
-    printf("Total de imóveis lidos: %d\n", totalImovel);
+    printf("Total de imóveis lidos: %d\n", total_imoveis);
 
-    if (totalImovel == 0) {
+    if (total_imoveis == 0) {
         printf("Nenhum imóvel cadastrado no arquivo.\n");
         return;
     }
 
     printf("Porcentagem de imóveis por finalidade:\n");
-    printf(" - Venda: %.1f%%\n", (cVenda * 100.0) / totalImovel);
-    printf(" - Locação (Aluguel/Temporada): %.1f%%\n", (cLocacao * 100.0) / totalImovel);
+    printf(" - Venda: %.1f%%\n", (count_venda * 100.0) / total_imoveis);
+    printf(" - Locação (Aluguel/Temporada): %.1f%%\n", (count_locacao * 100.0) / total_imoveis);
 
-    if (totalCasas > 0) {
+    if (casas_totais > 0) {
         printf("Porcentagem de casas com suítes: %.1f%% (%d de %d casas)\n",
-               (casas_com_suite * 100.0) / totalCasas, casas_com_suite, totalCasas);
+               (casas_com_suite * 100.0) / casas_totais, casas_com_suite, casas_totais);
     } else {
         printf("Não há casas cadastradas.\n");
     }
@@ -310,18 +357,15 @@ void listarImoveis(Imovel Imoveis[], int quantidade) {
 
 int main(){
     
-    ifstream informacoes("BD_Imoveis2.txt");
+    ifstream informacoes("../data/BD_Imoveis2.txt");
     if (!informacoes) {
         cout << "Erro ao abrir o arquivo" << endl;
         return 1;
     }
     cout << "Arquivo aberto com sucesso!" << endl;
-    int QuantMax = 200;
-    Imovel Imoveis[QuantMax];
+    Imovel Imoveis[200];
     int QuantAtual = 0;
-
     while (
-        QuantAtual < QuantMax &&
         informacoes >> Imoveis[QuantAtual].Tipo
         >> Imoveis[QuantAtual].Finalidade
         >> Imoveis[QuantAtual].Endereco
@@ -329,6 +373,7 @@ int main(){
         >> Imoveis[QuantAtual].Cidade
         >> Imoveis[QuantAtual].Area
         >> Imoveis[QuantAtual].Valor
+        >> Imoveis[QuantAtual].IPTU
         >> Imoveis[QuantAtual].Quartos
         >> Imoveis[QuantAtual].Suites
         >> Imoveis[QuantAtual].Banheiros
@@ -344,11 +389,24 @@ int main(){
         >> Imoveis[QuantAtual].Aquecedor
         >> Imoveis[QuantAtual].Ventilador
     ) {
-        QuantAtual++;
+    cout << "Tipo do imovel: " << Imoveis[QuantAtual].Tipo << endl;
+    QuantAtual++;
     }
 
-    
-    menuBusca(QuantAtual,Imoveis);
+    int QuantLeitura;
+    if(QuantAtual > 100)  QuantLeitura = 100;
+    else QuantLeitura = QuantAtual;
+    cout << "A lista de imoveis está carregada com " << QuantAtual << " imóveis." << endl;
+    menuBusca(QuantLeitura,Imoveis);
+
+    /*
+    +--[Esta faltando fazer]--+
+    -> as funções se conversarem
+    -> a reescrita da nova lista de imoveis no arquivo
+    -> comentar o codigo inteiro( de preferencia de ja separar as duplas pra deixar claro oq cada um falaria) 
+    -> melhorar os outputs
+    oi
+    */
 
     return 0;
 }
