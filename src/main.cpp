@@ -410,7 +410,8 @@ int main(){
     */
    
     int quant = 0;
-    int opcao = menu(quant); // exibe o menu uma vez antes do loop
+    int opcao;
+    opcao = menu(quant); // exibe o menu uma vez antes do loop
 
     while (opcao != 0) {
         switch (opcao) {
