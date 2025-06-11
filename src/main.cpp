@@ -30,6 +30,7 @@ typedef struct {
     char Ventilador[4]; // 1-sim, 0-não
 }Imovel;
 
+
 int menu(int quant) {
     int opcao;
     cout << "Menu de Opções:" << endl;
@@ -357,7 +358,7 @@ void listarImoveis(Imovel Imoveis[], int quantidade) {
 
 int main(){
     
-    ifstream informacoes("../data/BD_Imoveis2.txt");
+    ifstream informacoes("../../data/BD_Imoveis2.txt");
     if (!informacoes) {
         cout << "Erro ao abrir o arquivo" << endl;
         return 1;
@@ -389,7 +390,6 @@ int main(){
         >> Imoveis[QuantAtual].Aquecedor
         >> Imoveis[QuantAtual].Ventilador
     ) {
-    cout << "Tipo do imovel: " << Imoveis[QuantAtual].Tipo << endl;
     QuantAtual++;
     }
 
@@ -397,7 +397,7 @@ int main(){
     if(QuantAtual > 100)  QuantLeitura = 100;
     else QuantLeitura = QuantAtual;
     cout << "A lista de imoveis está carregada com " << QuantAtual << " imóveis." << endl;
-    menuBusca(QuantLeitura,Imoveis);
+ 
 
     /*
     +--[Esta faltando fazer]--+
@@ -407,8 +407,10 @@ int main(){
     -> melhorar os outputs
     oi
     */
-
-    int opcao = menu(quant); // exibe o menu uma vez antes do loop
+   
+    int quant = 0;
+    int opcao;
+    opcao = menu(quant); // exibe o menu uma vez antes do loop
 
     while (opcao != 0) {
         switch (opcao) {
@@ -416,17 +418,14 @@ int main(){
                 cout << "Incluindo um novo imóvel..." << endl;
                 // lógica de inclusão
                 break;
-
             case 2:
                 cout << "Acessando menu de busca..." << endl;
                 // lógica de busca
                 break;
-
             case 3:
                 cout << "Gerando relatório de estatísticas..." << endl;
                 // lógica de estatísticas
                 break;
-
             case 4:
             {
                 cout << "Listando todos os imóveis disponíveis..." << endl;
@@ -463,7 +462,8 @@ int main(){
     }
 
     listarImoveis(Imoveis, quantidade);            
-    break;}
+    break;
+}
 
             default:
                 cout << "Opção inválida! Tente novamente." << endl;
