@@ -411,4 +411,39 @@ int main(){
     oi
     */
 
-    
+    int opcao = menu(quant); // exibe o menu uma vez antes do loop
+
+    while (opcao != 0) {
+        switch (opcao) {
+            case 1:
+                cout << "Incluindo um novo imóvel..." << endl;
+                // lógica de inclusão
+                break;
+
+            case 2:
+                cout << "Acessando menu de busca..." << endl;
+                // lógica de busca
+                break;
+
+            case 3:
+                cout << "Gerando relatório de estatísticas..." << endl;
+                // lógica de estatísticas
+                break;
+
+            case 4:
+                cout << "Listando todos os imóveis disponíveis..." << endl;
+                // lógica de listagem
+                break;
+
+            default:
+                cout << "Opção inválida! Tente novamente." << endl;
+                break;
+        }
+
+        cout << endl;
+        opcao = menu(quant); // exibe o menu novamente após a execução da opção
+    }
+
+    cout << "Saindo do programa..." << endl;
+    return 0;
+}
