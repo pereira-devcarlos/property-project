@@ -37,11 +37,12 @@ int menu(int quant) {
     cout << "2. Menu de opções de busca" << endl;
     cout << "3. Relatório de Estatísticas" << endl;
     cout << "4. Listagem de todos os imóveis disponíveis" << endl;
-    cout << "5. Sair" << endl;
+    cout << "0. Sair" << endl;
     cout << "Escolha uma opção: ";
     cin >> opcao;
     return opcao;
 }
+
 
 void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
     int opcao;
@@ -296,24 +297,24 @@ void excluirImovel(Imovel imoveis[], int &total){
     }
 
 }
-void relatorio(int total_imoveis,int count_venda,int count_locacao,int casas_totais,int casas_com_suite,int salacomercial_totais,int salacomercial_ceramica) {
+void relatorio(int totalImoveis,int cVenda,int cLocacao,int totalCasas,int casas_com_suite,int salacomercial_totais,int salacomercial_ceramica) {
     
     printf("Relatório de Estatísticas dos Imóveis\n");
     printf("------------------------------------\n");
-    printf("Total de imóveis lidos: %d\n", total_imoveis);
+    printf("Total de imóveis lidos: %d\n", totalImoveis);
 
-    if (total_imoveis == 0) {
+    if (totalImoveis == 0) {
         printf("Nenhum imóvel cadastrado no arquivo.\n");
         return;
     }
 
     printf("Porcentagem de imóveis por finalidade:\n");
-    printf(" - Venda: %.1f%%\n", (count_venda * 100.0) / total_imoveis);
-    printf(" - Locação (Aluguel/Temporada): %.1f%%\n", (count_locacao * 100.0) / total_imoveis);
+    printf(" - Venda: %.1f%%\n", (cVenda * 100.0) / totalImoveis);
+    printf(" - Locação (Aluguel/Temporada): %.1f%%\n", (cLocacao * 100.0) / totalImoveis);
 
-    if (casas_totais > 0) {
+    if (totalCasas > 0) {
         printf("Porcentagem de casas com suítes: %.1f%% (%d de %d casas)\n",
-               (casas_com_suite * 100.0) / casas_totais, casas_com_suite, casas_totais);
+               (casas_com_suite * 100.0) / totalCasas, casas_com_suite, totalCasas);
     } else {
         printf("Não há casas cadastradas.\n");
     }
@@ -326,7 +327,6 @@ void relatorio(int total_imoveis,int count_venda,int count_locacao,int casas_tot
         printf("Não há salas comerciais cadastradas.\n");
     }
 }
-
 void listarImoveis(Imovel Imoveis[], int quantidade) {
     for (int i = 0; i < quantidade; i++) { // Corrigido!
         cout << "Tipo: " << Imoveis[i].Tipo << endl;
@@ -408,5 +408,72 @@ int main(){
     oi
     */
 
+    int opcao = menu(quant); // exibe o menu uma vez antes do loop
+
+    while (opcao != 0) {
+        switch (opcao) {
+            case 1:
+                cout << "Incluindo um novo imóvel..." << endl;
+                // lógica de inclusão
+                break;
+
+            case 2:
+                cout << "Acessando menu de busca..." << endl;
+                // lógica de busca
+                break;
+
+            case 3:
+                cout << "Gerando relatório de estatísticas..." << endl;
+                // lógica de estatísticas
+                break;
+
+            case 4:
+            {
+                cout << "Listando todos os imóveis disponíveis..." << endl;
+                // lógica de listagem
+                cout << "Arquivo aberto com sucesso!" << endl;
+    Imovel Imoveis[100];
+    
+    int quantidade = 0;
+
+    while (quantidade < 100 && informacoes 
+                       >> Imoveis[quantidade].Tipo
+                       >> Imoveis[quantidade].Finalidade
+                       >> Imoveis[quantidade].Endereco
+                       >> Imoveis[quantidade].Bairro
+                       >> Imoveis[quantidade].Cidade
+                       >> Imoveis[quantidade].Area
+                       >> Imoveis[quantidade].Valor
+                       >> Imoveis[quantidade].IPTU
+                       >> Imoveis[quantidade].Quartos
+                       >> Imoveis[quantidade].Suites
+                       >> Imoveis[quantidade].Banheiros
+                       >> Imoveis[quantidade].Vagas
+                       >> Imoveis[quantidade].Cozinha
+                       >> Imoveis[quantidade].Sala
+                       >> Imoveis[quantidade].Varanda
+                       >> Imoveis[quantidade].AreaServico
+                       >> Imoveis[quantidade].Piso
+                       >> Imoveis[quantidade].Estado
+                       >> Imoveis[quantidade].Armarios
+                       >> Imoveis[quantidade].ArCondicionado
+                       >> Imoveis[quantidade].Aquecedor
+                       >> Imoveis[quantidade].Ventilador) {
+        quantidade++;
+    }
+
+    listarImoveis(Imoveis, quantidade);            
+    break;}
+
+            default:
+                cout << "Opção inválida! Tente novamente." << endl;
+                break;
+        }
+
+        cout << endl;
+        opcao = menu(quant); // exibe o menu novamente após a execução da opção
+    }
+
+    cout << "Saindo do programa..." << endl;
     return 0;
 }
