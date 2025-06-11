@@ -327,6 +327,33 @@ void relatorio(int total_imoveis,int count_venda,int count_locacao,int casas_tot
     }
 }
 
+void listarImoveis(Imovel Imoveis[], int quantidade) {
+    for (int i = 0; i < quantidade; i++) { // Corrigido!
+        cout << "Tipo: " << Imoveis[i].Tipo << endl;
+        cout << "Finalidade: " << Imoveis[i].Finalidade << endl;
+        cout << "Endereço: " << Imoveis[i].Endereco << endl;
+        cout << "Bairro: " << Imoveis[i].Bairro << endl;
+        cout << "Cidade: " << Imoveis[i].Cidade << endl;
+        cout << "Área: " << Imoveis[i].Area << endl;
+        cout << "Valor: " << Imoveis[i].Valor << endl;
+        cout << "Quartos: " << Imoveis[i].Quartos << endl;
+        cout << "Suites: " << Imoveis[i].Suites << endl;
+        cout << "Banheiros: " << Imoveis[i].Banheiros << endl;
+        cout << "Vagas: " << Imoveis[i].Vagas << endl;
+        cout << "Cozinha: " << Imoveis[i].Cozinha << endl;
+        cout << "Sala: " << Imoveis[i].Sala << endl;
+        cout << "Varanda: " << Imoveis[i].Varanda << endl;
+        cout << "Área de Serviço: " << Imoveis[i].AreaServico << endl;
+        cout << "Piso: " << Imoveis[i].Piso << endl;
+        cout << "Estado: " << Imoveis[i].Estado << endl;
+        cout << "Armários: " << Imoveis[i].Armarios << endl;
+        cout << "Ar Condicionado: " << Imoveis[i].ArCondicionado << endl;
+        cout << "Aquecedor: " << Imoveis[i].Aquecedor << endl;
+        cout << "Ventilador: " << Imoveis[i].Ventilador << endl;
+        cout << "-------------------------" << endl;
+    }
+}
+
 
 int main(){
     
