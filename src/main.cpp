@@ -378,7 +378,6 @@ int main(){
     -> a reescrita da nova lista de imoveis no arquivo
     -> comentar o codigo inteiro( de preferencia de ja separar as duplas pra deixar claro oq cada um falaria) 
     -> melhorar os outputs
-    oi
     */
 
     return 0;
