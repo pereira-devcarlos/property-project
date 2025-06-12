@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <sstream>
 
 using namespace std;
 
@@ -422,20 +423,24 @@ int main(){
                 cout << "Acessando menu de busca..." << endl;
                 // lógica de busca
                 break;
-            case 3:
-                cout << "Gerando relatório de estatísticas..." << endl;
-                // lógica de estatísticas
+            
+            
+            
+        case 3: {
+                
+                
                 break;
+    }
+            
+            
             case 4:
-            {
+            {    
                 cout << "Listando todos os imóveis disponíveis..." << endl;
                 // lógica de listagem
                 cout << "Arquivo aberto com sucesso!" << endl;
-    Imovel Imoveis[100];
-    
-    int quantidade = 0;
-
-    while (quantidade < 100 && informacoes 
+                Imovel Imoveis[100];
+                int quantidade = 0;
+                while (quantidade < 100 && informacoes 
                        >> Imoveis[quantidade].Tipo
                        >> Imoveis[quantidade].Finalidade
                        >> Imoveis[quantidade].Endereco
@@ -458,16 +463,16 @@ int main(){
                        >> Imoveis[quantidade].ArCondicionado
                        >> Imoveis[quantidade].Aquecedor
                        >> Imoveis[quantidade].Ventilador) {
-        quantidade++;
-    }
+                        quantidade++;
+                         }
 
-    listarImoveis(Imoveis, quantidade);            
-    break;
-}
-
-            default:
-                cout << "Opção inválida! Tente novamente." << endl;
-                break;
+                        listarImoveis(Imoveis, quantidade);            
+   
+                        break;
+            }
+                        default:
+                        cout << "Opção inválida! Tente novamente." << endl;
+                        break;
         }
 
         cout << endl;
