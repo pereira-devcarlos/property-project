@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstring>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -45,7 +46,232 @@ int menu(int quant) {
     return opcao;
 }
 
+void menuInclusao(int quant, Imovel Vetor[]){
+    char Tipo[30], Finalidade[10], IPTU[12], Area[12], Quartos[12], Suites[12], Banheiros[12], Vagas[12], Cozinha[4], Sala[4], Varanda[4], AreaServico[4], Armarios[4], ArCondicionado[4], Aquecedor[4], Ventilador[4],Endereco[50], Bairro[20], Cidade[20], Piso[20], Estado[10], Valor[12];
+    int Op, OpF;
+    cout << "Qual o tipo do imovel?\n1.Casa  2.Apartamento  3.Terreno  4.Sala comercial  5.Galpão\nR:";
+    cin >> Op;
+    while(Op < 1 and 5 < Op){
+        cout << "Opção invalida, digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Tipo, "casa"); 
+    }else if(Op == 2){
+        strcpy(Tipo, "apartamento");
+    }else if(Op == 3){
+        strcpy(Tipo, "terreno");
+    }else if(Op == 4){
+        strcpy(Tipo, "sala_comercial");
+    }else{
+        strcpy(Tipo, "galpao");
+    }
+    cout << "Qual a finalidade do imovel?\n1.Venda  2.Locação  3.Temporada\nR:";
+    cin >> OpF;
+    while(OpF < 1 and 3 < OpF){
+        cout << "Opção invalida, digite uma opção valida:";
+        cin >> OpF;
+    }
+    if(OpF == 1){
+        strcpy(Finalidade, "venda");
+    }else if(OpF == 2){
+        strcpy(Finalidade, "locacao");
+    }else{
+        strcpy(Finalidade, "temporada");
+    }
+    cout << "Qual o endereço do imovel? (Ao escrever o endereço, utilize \"_\" para espaços)\nR:";
+    cin >> Endereco;
+    cout << "Qual o bairro do imovel? (Ao escrever o bairro, utilize \"_\" para espaços)\nR:";
+    cin >> Bairro;
+    cout << "Qual a cidade do imovel? (Ao escrever a cidade, utilize \"_\" para espaços)\nR:";
+    cin >> Cidade;
+    cout << "Qual a área do imovel?\nR:";
+    cin >> Op;
+    while(Op <= 0){
+        cout << "Digite um valor de area valido:";
+        cin >> Op;
+    }
+    sprintf(Area, "%d", Op); // Atribui o valor da área
+    if(OpF == 1){ // Se for venda, o valor é em reais
+        cout << "Qual o valor do imovel? (Ao escrever o valor, utilize \"_\" para espaços)\nR:";
+        cin >> Valor;
+        while(atoi(Valor) <= 0){
+            cout << "Digite um valor de imovel valido:";
+            cin >> Valor;
+        }
+    } else { // Se for locação ou temporada, o valor é por dia
+        cout << "Qual o valor do aluguel do imovel? (Ao escrever o valor, utilize \"_\" para espaços)\nR:";
+        cin >> Valor;
+        while(atoi(Valor) <= 0){
+            cout << "Digite um valor de aluguel valido:";
+            cin >> Valor;
+        }
+        strcat(Valor, "/dia"); // Adiciona "/dia" ao final do valor
+    }
 
+    cout << "Qual o IPTU do imovel?\nR:";
+    cin >> Op;
+    while (Op < 0){
+        cout << "Digite um valor de IPTU valido:";
+        cin >> Op;
+    }  
+    sprintf(IPTU, "%d", Op); // Atribui o valor do IPTU
+    cout << "Quantos quartos tem o imovel?\nR:";
+    cin >> Op;
+    while (Op < 0){
+        cout << "Digite um valor de quartos valido:";
+        cin >> Op;
+    }
+    sprintf(Quartos, "%d", Op); // Atribui o valor dos quartos
+    cout << "Quantas suites tem o imovel?\nR:";
+    cin >> Op;
+    while (Op < 0){
+        cout << "Digite um valor de suites valido:";
+        cin >> Op;
+    }
+    sprintf(Suites, "%d", Op); // Atribui o valor das suites
+    cout << "Quantos banheiros tem o imovel?\nR:";
+    cin >> Op;
+    while (Op < 0){
+        cout << "Digite um valor de banheiros valido:";
+        cin >> Op;
+    }
+    sprintf(Banheiros, "%d", Op); // Atribui o valor dos banheiros
+    cout << "Quantas vagas tem o imovel?\nR:";
+    cin >> Op;
+    while (Op < 0){
+        cout << "Digite um valor de vagas valido:";
+        cin >> Op;
+    }
+    sprintf(Vagas, "%d", Op); // Atribui o valor das vagas
+    cout << "O imovel tem cozinha?\n1.Sim  0.Não\nR:";
+    cin >>  Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Cozinha, "sim");
+    }else{
+        strcpy(Cozinha, "não");
+    }
+    cout << "O imovel tem sala?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Sala, "sim");
+    }else{
+        strcpy(Sala, "não");
+    }
+    cout << "O imovel tem varanda?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Varanda, "sim");
+    }else{
+        strcpy(Varanda, "não");
+    }
+    cout << "O imovel tem área de serviço?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(AreaServico, "sim");
+    }else{
+        strcpy(AreaServico, "não");
+    }
+    cout << "Qual o tipo de piso do imovel? (Ao escrever o tipo, utilize \"_\" para espaços)\nR:";
+    cin >> Piso;
+    cout << "Qual o estado do imovel?\n1.Novo  2.Usado  3.Reformado\nR:";
+    cin >> Op;
+    while (Op < 1 or Op > 3){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Estado, "novo");
+    }else if(Op == 2){
+        strcpy(Estado, "usado");
+    }else{
+        strcpy(Estado, "reformado");
+    }
+    cout << "O imovel tem armarios?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Armarios, "sim");
+    }else{
+        strcpy(Armarios, "não");
+    }
+    cout << "O imovel tem ar condicionado?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(ArCondicionado, "sim");
+    }else{
+        strcpy(ArCondicionado, "não");
+    }
+    cout << "O imovel tem aquecedor?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Aquecedor, "sim");
+    }else{
+        strcpy(Aquecedor, "não");
+    }
+    cout << "O imovel tem ventilador?\n1.Sim  0.Não\nR:";
+    cin >> Op;
+    while (Op < 0 or Op > 1){
+        cout << "Digite uma opção valida:";
+        cin >> Op;
+    }
+    if(Op == 1){
+        strcpy(Ventilador, "sim");
+    }else{
+        strcpy(Ventilador, "não");
+    }
+
+    // Adiciona o imóvel ao vetor
+    strcpy(Vetor[quant].Tipo, Tipo);
+    strcpy(Vetor[quant].Finalidade, Finalidade);
+    strcpy(Vetor[quant].Endereco, Endereco);
+    strcpy(Vetor[quant].Bairro, Bairro);
+    strcpy(Vetor[quant].Cidade, Cidade);
+    Vetor[quant].Area = atoi(Area);
+    strcpy(Vetor[quant].Valor, Valor);
+    Vetor[quant].IPTU = atoi(IPTU);
+    Vetor[quant].Quartos = atoi(Quartos);
+    Vetor[quant].Suites = atoi(Suites);
+    Vetor[quant].Banheiros = atoi(Banheiros);
+    Vetor[quant].Vagas = atoi(Vagas);
+    strcpy(Vetor[quant].Cozinha, Cozinha);
+    strcpy(Vetor[quant].Sala, Sala);
+    strcpy(Vetor[quant].Varanda, Varanda);
+    strcpy(Vetor[quant].AreaServico, AreaServico);
+    strcpy(Vetor[quant].Piso, Piso);
+    strcpy(Vetor[quant].Estado, Estado);
+    strcpy(Vetor[quant].Armarios, Armarios);
+    strcpy(Vetor[quant].ArCondicionado, ArCondicionado);
+    strcpy(Vetor[quant].Aquecedor, Aquecedor);
+    strcpy(Vetor[quant].Ventilador, Ventilador);
+}
 void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
     int opcao;
     cout << "Menu de Busca:" << endl;
@@ -201,12 +427,9 @@ void menuBusca(int quant, Imovel Vetor[]) { // W.I.P
                 }
                 break;
             }
-        }
-        
-        break;}
-    case 8:
-        menu(quant);
+        }  
         break;
+    }
     }
     int rep;
     cout << "Deseja pesquisar por outro critério?\n1. Sim   2. Não\nR:";
@@ -399,86 +622,116 @@ int main(){
     else QuantLeitura = QuantAtual;
     cout << "A lista de imoveis está carregada com " << QuantAtual << " imóveis." << endl;
  
-
-    /*
-    +--[Esta faltando fazer]--+
-    -> as funções se conversarem
-    -> a reescrita da nova lista de imoveis no arquivo
-    -> comentar o codigo inteiro( de preferencia de ja separar as duplas pra deixar claro oq cada um falaria) 
-    -> melhorar os outputs
-    oi
-    */
-   
     int quant = 0;
     int opcao;
     opcao = menu(quant); // exibe o menu uma vez antes do loop
 
     while (opcao != 0) {
-        switch (opcao) {
+        switch(opcao) {
             case 1:
                 cout << "Incluindo um novo imóvel..." << endl;
-                // lógica de inclusão
+                menuInclusao(QuantLeitura, Imoveis); // chama a função de inclusão
+                QuantAtual++; // incrementa o contador de imóveis
                 break;
             case 2:
                 cout << "Acessando menu de busca..." << endl;
-                // lógica de busca
+                menuBusca(QuantLeitura, Imoveis); // chama a função de busca
                 break;
-            
-            
-            
-        case 3: {
-                
-                
+             case 3:{
+                cout << "Acessando relatorio..." << endl;
+                // lógica de relatório
+                int total_imoveis = 0;
+                int count_venda = 0;
+                int count_locacao = 0;
+                int casas_totais = 0;
+                int casas_com_suite = 0;
+                int salacomercial_totais = 0;
+                int salacomercial_ceramica = 0;
+
+                string line;
+                while (getline(informacoes, line)) {
+                    if (line.empty()) continue;
+
+                    istringstream iss(line);
+                    Imovel imovel;
+
+                    string tipo_str, finalidade_str, piso_str, estado_str;
+                    string cozinha_str, sala_str, varanda_str, area_servico_str;
+                    string armarios_str, ar_str, aquecedor_str, ventilador_str;
+
+                    // Leitura dos campos
+                    iss >> tipo_str >> finalidade_str
+                        >> imovel.Endereco >> imovel.Bairro >> imovel.Cidade
+                        >> imovel.Area >> imovel.Valor >> imovel.IPTU
+                        >> imovel.Quartos >> imovel.Suites >> imovel.Banheiros >> imovel.Vagas
+                        >> cozinha_str >> sala_str >> varanda_str >> area_servico_str >> piso_str
+                        >> estado_str >> armarios_str >> ar_str >> aquecedor_str >> ventilador_str;
+
+                    // Preenchendo os campos da struct com strncpy
+                    strncpy(imovel.Tipo, tipo_str.c_str(), sizeof(imovel.Tipo));
+                    strncpy(imovel.Finalidade, finalidade_str.c_str(), sizeof(imovel.Finalidade));
+                    strncpy(imovel.Cozinha, cozinha_str.c_str(), sizeof(imovel.Cozinha));
+                    strncpy(imovel.Sala, sala_str.c_str(), sizeof(imovel.Sala));
+                    strncpy(imovel.Varanda, varanda_str.c_str(), sizeof(imovel.Varanda));
+                    strncpy(imovel.AreaServico, area_servico_str.c_str(), sizeof(imovel.AreaServico));
+                    strncpy(imovel.Piso, piso_str.c_str(), sizeof(imovel.Piso));
+                    strncpy(imovel.Estado, estado_str.c_str(), sizeof(imovel.Estado));
+                    strncpy(imovel.Armarios, armarios_str.c_str(), sizeof(imovel.Armarios));
+                    strncpy(imovel.ArCondicionado, ar_str.c_str(), sizeof(imovel.ArCondicionado));
+                    strncpy(imovel.Aquecedor, aquecedor_str.c_str(), sizeof(imovel.Aquecedor));
+                    strncpy(imovel.Ventilador, ventilador_str.c_str(), sizeof(imovel.Ventilador));
+
+                    // Garantindo terminação nula
+                    imovel.Tipo[sizeof(imovel.Tipo) - 1] = '\0';
+                    imovel.Finalidade[sizeof(imovel.Finalidade) - 1] = '\0';
+
+                    // Atualizar contagens
+                    total_imoveis++;
+
+                    if (strcmp(imovel.Finalidade, "venda") == 0)
+                        count_venda++;
+                    else
+                        count_locacao++;
+
+                    if (strcmp(imovel.Tipo, "casa") == 0) {
+                        casas_totais++;
+                        if (imovel.Suites > 0)
+                            casas_com_suite++;
+                    }
+
+                    if (strcmp(imovel.Tipo, "sala_comercial") == 0) {
+                        salacomercial_totais++;
+                        if (strcmp(imovel.Piso, "ceramica") == 0 || strcmp(imovel.Piso, "cerâmica") == 0)
+                            salacomercial_ceramica++;
+                    }
+                }
+
+                informacoes.close();
+
+                // Relatório
+                relatorio(
+                    total_imoveis,
+                    count_venda,
+                    count_locacao,
+                    casas_totais,
+                    casas_com_suite,
+                    salacomercial_totais,
+                    salacomercial_ceramica
+                );
                 break;
-    }
-            
-            
+            }          
             case 4:
-            {    
                 cout << "Listando todos os imóveis disponíveis..." << endl;
                 // lógica de listagem
-                cout << "Arquivo aberto com sucesso!" << endl;
-                Imovel Imoveis[100];
-                int quantidade = 0;
-                while (quantidade < 100 && informacoes 
-                       >> Imoveis[quantidade].Tipo
-                       >> Imoveis[quantidade].Finalidade
-                       >> Imoveis[quantidade].Endereco
-                       >> Imoveis[quantidade].Bairro
-                       >> Imoveis[quantidade].Cidade
-                       >> Imoveis[quantidade].Area
-                       >> Imoveis[quantidade].Valor
-                       >> Imoveis[quantidade].IPTU
-                       >> Imoveis[quantidade].Quartos
-                       >> Imoveis[quantidade].Suites
-                       >> Imoveis[quantidade].Banheiros
-                       >> Imoveis[quantidade].Vagas
-                       >> Imoveis[quantidade].Cozinha
-                       >> Imoveis[quantidade].Sala
-                       >> Imoveis[quantidade].Varanda
-                       >> Imoveis[quantidade].AreaServico
-                       >> Imoveis[quantidade].Piso
-                       >> Imoveis[quantidade].Estado
-                       >> Imoveis[quantidade].Armarios
-                       >> Imoveis[quantidade].ArCondicionado
-                       >> Imoveis[quantidade].Aquecedor
-                       >> Imoveis[quantidade].Ventilador) {
-                        quantidade++;
-                         }
-
-                        listarImoveis(Imoveis, quantidade);            
-   
-                        break;
-            }
-                        default:
-                        cout << "Opção inválida! Tente novamente." << endl;
-                        break;
+                listarImoveis(Imoveis, QuantLeitura);        
+            break;
+            default:
+                cout << "Opção inválida! Tente novamente." << endl;
+            break;
         }
-
         cout << endl;
         opcao = menu(quant); // exibe o menu novamente após a execução da opção
     }
-
     cout << "Saindo do programa..." << endl;
     return 0;
 } 
