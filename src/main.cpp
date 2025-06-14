@@ -640,10 +640,10 @@ int main(){
              case 3:{
                 cout << "Acessando relatorio..." << endl;
                 // lógica de relatório
-                int total_imoveis = 0;
-                int count_venda = 0;
-                int count_locacao = 0;
-                int casas_totais = 0;
+                int totalImoveis = 0;
+                int cVenda = 0;
+                int cLocacao = 0;
+                int totalCasas = 0;
                 int casas_com_suite = 0;
                 int salacomercial_totais = 0;
                 int salacomercial_ceramica = 0;
@@ -686,15 +686,15 @@ int main(){
                     imovel.Finalidade[sizeof(imovel.Finalidade) - 1] = '\0';
 
                     // Atualizar contagens
-                    total_imoveis++;
+                    totalImoveis++;
 
                     if (strcmp(imovel.Finalidade, "venda") == 0)
-                        count_venda++;
+                        cVenda++;
                     else
-                        count_locacao++;
+                        cLocacao++;
 
                     if (strcmp(imovel.Tipo, "casa") == 0) {
-                        casas_totais++;
+                        totalCasas++;
                         if (imovel.Suites > 0)
                             casas_com_suite++;
                     }
@@ -706,14 +706,17 @@ int main(){
                     }
                 }
 
+
+                // coommit teste
+                
                 informacoes.close();
 
                 // Relatório
                 relatorio(
-                    total_imoveis,
-                    count_venda,
-                    count_locacao,
-                    casas_totais,
+                    totalImoveis,
+                    cVenda,
+                    cLocacao,
+                    totalCasas,
                     casas_com_suite,
                     salacomercial_totais,
                     salacomercial_ceramica
